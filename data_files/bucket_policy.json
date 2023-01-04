@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1672852663741",
+    "Statement": [
+        {
+            "Sid": "Stmt1672852653209",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::krystian-kr-boto3-bucket4/*",
+            "Condition": {
+                "Null": {
+                    "s3:x-amz-server-side-encryption": "true"
+                },
+                "StringNotEquals": {
+                    "s3:x-amz-server-side-encryption": "AES256"
+                }
+            }
+        }
+    ]
+}
